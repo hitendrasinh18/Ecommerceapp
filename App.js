@@ -1,12 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Mainpage from './Screen/Allscreen/Mainpage';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Menuscreen from './Screen/Allscreen/Menuscreen';
+import { NavigationContainer } from '@react-navigation/native';
+import Cart from './Screen/Allscreen/Cart';
 
-export default function App() {
+
+
+const Tab = createBottomTabNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Mainpage}  />
+        <Tab.Screen name="Menu" component={Menuscreen} />
+        <Tab.Screen name="Cart" component={Cart} />
+      </Tab.Navigator>
+    </NavigationContainer>
+
   );
 }
 
@@ -18,3 +32,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default App;
